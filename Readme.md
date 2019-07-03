@@ -35,3 +35,7 @@ public class A8SourceCode {
     private String extractCode;
 }
 ```
+
+## 展示效果
+
+<img src="https://raw.githubusercontent.com/BoomManPro/crawler-fruit-a8/master/doc/image/a8%20db.png" width="50%">
