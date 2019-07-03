@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.boommanpro.dao.A8SourceCodeMapper">
+  <resultMap id="BaseResultMap" type="cn.boommanpro.model.A8SourceCode">
+    <!--@mbg.generated generated on Tue Jun 04 00:36:20 CST 2019.-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="about" jdbcType="VARCHAR" property="about" />
+    <result column="about_img" jdbcType="VARCHAR" property="aboutImg" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+    <result column="create_date" jdbcType="VARCHAR" property="createDate" />
+    <result column="full_title" jdbcType="VARCHAR" property="fullTitle" />
+    <result column="page_content" jdbcType="LONGVARCHAR" property="pageContent" />
+    <result column="pan_url" jdbcType="VARCHAR" property="panUrl" />
+    <result column="extract_code" jdbcType="VARCHAR" property="extractCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Tue Jun 04 00:36:20 CST 2019.-->
+    id, url, title, about, about_img, tag, create_date, full_title, page_content, pan_url, 
+    extract_code
+  </sql>
+  <insert id="batchInsert">
+    <choose>
+      <when test="null != a8SourceCodeList and a8SourceCodeList.size > 0">
+        INSERT IGNORE INTO `a8_source_code`( `url`, `title`, `about`, `about_img`, `tag`, `create_date`) VALUES
+        <foreach collection="a8SourceCodeList" item="a8SourceCode"  separator=",">
+          (#{a8SourceCode.url},
+          #{a8SourceCode.title},
+          #{a8SourceCode.about},
+          #{a8SourceCode.aboutImg},
+          #{a8SourceCode.tag},
+          #{a8SourceCode.createDate}
+          )
+        </foreach>
+      </when>
+      <otherwise>
+        select 0
+      </otherwise>
+    </choose>
+  </insert>
+</mapper>
