@@ -30,6 +30,9 @@ public class A8CrawlerServiceTest {
     @Autowired
     private A8SourceCodeMapper a8SourceCodeMapper;
 
+    /**
+     * 无需登录 即可爬取基础信息
+     */
     @Test
     public void initListTest() throws IOException, InterruptedException {
         for (int i = 1; i <= 23; i++) {
@@ -44,6 +47,9 @@ public class A8CrawlerServiceTest {
 
     }
 
+    /**
+     * 更新云盘地址 和 密码信息
+     */
     @Test
     public void updateA8SourceCode() throws IOException, InterruptedException {
         for (int i = 356; i <= 369; i++) {
